@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ras6ipwwmfn7"]
+
+[ext_resource type="PackedScene" uid="uid://bwfynkkf0i085" path="res://Player3/Player3.tscn" id="1_t5g8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xegwk"]
+size = Vector2(2058, 442)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i2m5"]
+size = Vector2(437, 1208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_370g7"]
+size = Vector2(437, 1208)
+
+[node name="1Geonosis" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(944, 960)
+shape = SubResource("RectangleShape2D_xegwk")
+
+[node name="Wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-218.5, 580)
+shape = SubResource("RectangleShape2D_1i2m5")
+
+[node name="Wall2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2128, 576)
+shape = SubResource("RectangleShape2D_370g7")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_t5g8j")]
+position = Vector2(656, 344)
