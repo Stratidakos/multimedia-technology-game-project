@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn3vj10dsoasd"]
+
+[ext_resource type="Texture2D" uid="uid://ciel1ba87hwcn" path="res://Tall Forest/Tall Forest Pack/Layers/back.png" id="1_11kyi"]
+[ext_resource type="Script" path="res://endor.gd" id="1_b0qpp"]
+[ext_resource type="Texture2D" uid="uid://cpb45yi0g5dwl" path="res://Tall Forest/Tall Forest Pack/Layers/far.png" id="2_fyswy"]
+[ext_resource type="Texture2D" uid="uid://b0hcbeyfs6c0f" path="res://Tall Forest/Tall Forest Pack/Layers/middle.png" id="3_n6s8t"]
+[ext_resource type="PackedScene" uid="uid://bwfynkkf0i085" path="res://Player3/Player3.tscn" id="5_2xaa7"]
+
+[node name="EndorBackground" type="ParallaxBackground"]
+script = ExtResource("1_b0qpp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1964, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(492.5, 544.5)
+scale = Vector2(6.82639, 4.52917)
+texture = ExtResource("1_11kyi")
+
+[node name="Back2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1472, 544)
+scale = Vector2(6.82639, 4.52917)
+texture = ExtResource("1_11kyi")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(2240, 0)
+
+[node name="Far" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(560, 544)
+scale = Vector2(6.36364, 4.53333)
+texture = ExtResource("2_fyswy")
+
+[node name="Far2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1680, 544)
+scale = Vector2(6.36364, 4.53333)
+texture = ExtResource("2_fyswy")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2101, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(384, 401)
+scale = Vector2(3.125, 3.3)
+texture = ExtResource("3_n6s8t")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1800, 400)
+scale = Vector2(3.125, 3.3)
+texture = ExtResource("3_n6s8t")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1080, 400)
+scale = Vector2(3.125, 3.3)
+texture = ExtResource("3_n6s8t")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_2xaa7")]

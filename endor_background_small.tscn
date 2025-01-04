@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkfberdymwqsf"]
+
+[ext_resource type="Texture2D" uid="uid://ciel1ba87hwcn" path="res://Tall Forest/Tall Forest Pack/Layers/back.png" id="1_shuqa"]
+[ext_resource type="Texture2D" uid="uid://cpb45yi0g5dwl" path="res://Tall Forest/Tall Forest Pack/Layers/far.png" id="2_51lbc"]
+[ext_resource type="Texture2D" uid="uid://b0hcbeyfs6c0f" path="res://Tall Forest/Tall Forest Pack/Layers/middle.png" id="3_ub5co"]
+
+[node name="EndorBackgroundSmall" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(288, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(72, 960)
+texture = ExtResource("1_shuqa")
+
+[node name="Back2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(216, 960)
+texture = ExtResource("1_shuqa")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(352, 0)
+
+[node name="Far" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(88, 960)
+texture = ExtResource("2_51lbc")
+
+[node name="Far2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(264, 960)
+texture = ExtResource("2_51lbc")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(368, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(96, 960)
+texture = ExtResource("3_ub5co")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(272, 960)
+texture = ExtResource("3_ub5co")
