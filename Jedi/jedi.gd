@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-
-const SPEED = 150.0
+var health = 1
+var SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim = get_node("AnimationPlayer")
@@ -11,6 +11,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	if health <= 0:
+		get_node("AnimatedSprite2D").play("Death")
+		await get_node("AnimatedSprite2D").animation_finished
+		SPEED = 0
+		queue_free()
+		get_tree().change_scene_to_file("res://main.tscn")
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -33,3 +40,5 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > 0:
 		anim.play("Fall")
 	move_and_slide()
+	
+	

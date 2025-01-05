@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://endor.gd" id="1_b0qpp"]
 [ext_resource type="Texture2D" uid="uid://cpb45yi0g5dwl" path="res://Tall Forest/Tall Forest Pack/Layers/far.png" id="2_fyswy"]
 [ext_resource type="Texture2D" uid="uid://b0hcbeyfs6c0f" path="res://Tall Forest/Tall Forest Pack/Layers/middle.png" id="3_n6s8t"]
-[ext_resource type="PackedScene" uid="uid://bwfynkkf0i085" path="res://Player3/Player3.tscn" id="5_2xaa7"]
+[ext_resource type="PackedScene" uid="uid://bwfynkkf0i085" path="res://Jedi/Jedi.tscn" id="5_2xaa7"]
 
 [node name="EndorBackground" type="ParallaxBackground"]
 script = ExtResource("1_b0qpp")
