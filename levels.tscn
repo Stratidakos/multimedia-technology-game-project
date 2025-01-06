@@ -2,7 +2,7 @@
 
 [ext_resource type="VideoStream" path="res://StarWarsBackgroundLevels.ogv" id="1_04bcw"]
 [ext_resource type="Script" path="res://levels.gd" id="1_hfomo"]
-[ext_resource type="Texture2D" uid="uid://cd8cdfj2qoiyp" path="res://geonosis.jpg" id="2_pxiul"]
+[ext_resource type="Texture2D" uid="uid://doi8qnndj3kxq" path="res://BrightTreeVillage-Endor.webp" id="3_cxsob"]
 [ext_resource type="Texture2D" uid="uid://c4l2g5d1db1b0" path="res://Kashyyyk.jpg" id="3_kb4hy"]
 [ext_resource type="Texture2D" uid="uid://cprv0uraejf" path="res://Utapau.jpeg" id="4_urfy7"]
 [ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://StarWarsTheme.tres" id="5_sa5nf"]
@@ -26,12 +26,13 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="geonosisImage" type="TextureRect" parent="."]
+[node name="endorImage" type="TextureRect" parent="."]
 offset_left = 124.0
 offset_top = 216.0
-offset_right = 632.0
-offset_bottom = 505.0
-texture = ExtResource("2_pxiul")
+offset_right = 624.0
+offset_bottom = 501.0
+texture = ExtResource("3_cxsob")
+expand_mode = 1
 
 [node name="kashyyykImage" type="TextureRect" parent="."]
 offset_left = 697.0
@@ -47,14 +48,14 @@ offset_right = 1773.0
 offset_bottom = 501.0
 texture = ExtResource("4_urfy7")
 
-[node name="geonosisButton" type="Button" parent="."]
+[node name="endorButton" type="Button" parent="."]
 offset_left = 191.0
 offset_top = 513.0
 offset_right = 559.0
 offset_bottom = 606.0
 theme = ExtResource("5_sa5nf")
 theme_override_font_sizes/font_size = 50
-text = " 1. Geonosis "
+text = " 1. Endor"
 
 [node name="kashyyykButton" type="Button" parent="."]
 offset_left = 756.0
@@ -74,4 +75,4 @@ theme = ExtResource("5_sa5nf")
 theme_override_font_sizes/font_size = 50
 text = " 3. utapau "
 
-[connection signal="pressed" from="geonosisButton" to="." method="_on_geonosis_button_pressed"]
+[connection signal="pressed" from="endorButton" to="." method="_on_geonosis_button_pressed"]

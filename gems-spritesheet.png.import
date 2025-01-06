@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd8cdfj2qoiyp"
-path="res://.godot/imported/geonosis.jpg-9088f569e34e7af26a1b687b90472be2.ctex"
+uid="uid://0t2uqlhhjmjr"
+path="res://.godot/imported/gems-spritesheet.png-bf6e1e6b8bb10b4a684eef4ea7f2c257.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://geonosis.jpg"
-dest_files=["res://.godot/imported/geonosis.jpg-9088f569e34e7af26a1b687b90472be2.ctex"]
+source_file="res://gems-spritesheet.png"
+dest_files=["res://.godot/imported/gems-spritesheet.png-bf6e1e6b8bb10b4a684eef4ea7f2c257.ctex"]
 
 [params]
 
