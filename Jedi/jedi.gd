@@ -7,6 +7,7 @@ var enemyAttackCooldonw = false
 var SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var attackFlag = false
+var parryFlag = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,8 +24,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and !attackFlag:
 		attackFlag = true
 		get_node("AnimatedSprite2D").play("Hit")
-		await get_tree().create_timer(0.250).timeout
+		await get_tree().create_timer(0.350).timeout
 		attackFlag = false
+		
+	if Input.is_action_just_pressed("parry") and !parryFlag:
+		parryFlag = true
+		get_node("AnimatedSprite2D").play("Parry")
+		await get_tree().create_timer(0.5).timeout
+		parryFlag = false
 		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -43,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			get_node("AnimatedSprite2D").play("Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if velocity.y == 0 and !attackFlag:
+		if velocity.y == 0 and !attackFlag and !parryFlag:
 			get_node("AnimatedSprite2D").play("Idle")
 	if velocity.y > 0:
 		get_node("AnimatedSprite2D").play("Fall")
@@ -51,10 +58,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "StormTrooper" and !enemyAttackCooldonw:
+	print(body.name)
+	if body.name == "StormTrooper" and !enemyAttackCooldonw and get_node("AnimatedSprite2D").animation != "Hit":
 		enemyAttackCooldonw = true
 		health -= 1
-		print(health)
+		$DamageCooldown.start()
+	elif body.name == "LaserBeam" and !enemyAttackCooldonw and get_node("AnimatedSprite2D").animation != "Parry":
+		body.queue_free()
+		enemyAttackCooldonw = true
+		health -= 1
 		$DamageCooldown.start()
 
 func _on_damage_cooldown_timeout() -> void:

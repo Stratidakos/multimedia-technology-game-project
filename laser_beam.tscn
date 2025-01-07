@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://6emgwcssg6lv"]
+
+[ext_resource type="Script" path="res://laser_beam.gd" id="1_i5vpw"]
+[ext_resource type="Texture2D" uid="uid://cr20k7hgfmhyy" path="res://02.png" id="1_nbmpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvcmh"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53cvw"]
+atlas = ExtResource("1_nbmpr")
+region = Rect2(0, 0, 127, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l13n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53cvw")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="LaserBeam" type="CharacterBody2D"]
+script = ExtResource("1_i5vpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bvcmh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(0.0620079, 0.0599593)
+sprite_frames = SubResource("SpriteFrames_1l13n")
+animation = &"Idle"
+
+[node name="DisappearTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

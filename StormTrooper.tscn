@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://5p5voaveeun0"]
+[gd_scene load_steps=22 format=3 uid="uid://5p5voaveeun0"]
 
 [ext_resource type="Texture2D" uid="uid://n2oyrt6kbxho" path="res://PC Computer - Star Wars Galactic Battlegrounds - Stormtrooper Recruit.png" id="1_vhlks"]
 [ext_resource type="Script" path="res://storm_trooper.gd" id="1_wh6fr"]
+[ext_resource type="PackedScene" uid="uid://6emgwcssg6lv" path="res://laser_beam.tscn" id="2_ylh4o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5mhs"]
 radius = 8.0
@@ -112,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_413ns")
 }],
-"loop": true,
+"loop": false,
 "name": &"Shoot",
 "speed": 5.0
 }, {
@@ -131,11 +132,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gvy2"]
 size = Vector2(176, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_goihs"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_acd5d"]
+radius = 16.0
+height = 32.0
 
 [node name="StormTrooper" type="CharacterBody2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_wh6fr")
+laserBeam = ExtResource("2_ylh4o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -145,7 +149,7 @@ shape = SubResource("CapsuleShape2D_c5mhs")
 position = Vector2(-4.76837e-07, -10.375)
 scale = Vector2(0.642857, 0.588983)
 sprite_frames = SubResource("SpriteFrames_gl0hk")
-animation = &"Idle"
+animation = &"Shoot"
 
 [node name="PlayerDetectionArea2D" type="Area2D" parent="."]
 position = Vector2(0, -8)
@@ -158,9 +162,17 @@ shape = SubResource("RectangleShape2D_6gvy2")
 position = Vector2(24, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
-position = Vector2(-24, 8)
-shape = SubResource("RectangleShape2D_goihs")
+position = Vector2(-24, 5)
+shape = SubResource("CapsuleShape2D_acd5d")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-16, -16)
 
 [connection signal="body_entered" from="PlayerDetectionArea2D" to="." method="_on_player_detection_area_2d_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionArea2D" to="." method="_on_player_detection_area_2d_body_exited"]
 [connection signal="body_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_body_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
