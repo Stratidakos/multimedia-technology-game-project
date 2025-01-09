@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsc5hn1rgpr3h"]
+
+[ext_resource type="Script" path="res://Main/main.gd" id="1_r08iu"]
+[ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://Themes/StarWarsTheme.tres" id="3_aq5bc"]
+[ext_resource type="PackedScene" uid="uid://dv0a82gwckxw6" path="res://SpaceBackground/space_background.tscn" id="3_q3auh"]
+[ext_resource type="PackedScene" uid="uid://falpd24f18my" path="res://MenuBackgroundMusic/menu_background_music.tscn" id="4_nuqg4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r08iu")
+metadata/_edit_horizontal_guides_ = [-39.0, -252.0]
+
+[node name="MenuBackgroundMusic" parent="." instance=ExtResource("4_nuqg4")]
+
+[node name="SpaceBackground" parent="." instance=ExtResource("3_q3auh")]
+
+[node name="Play" type="Button" parent="."]
+z_index = 1
+offset_left = 745.0
+offset_top = 200.0
+offset_right = 1156.0
+offset_bottom = 392.0
+theme = ExtResource("3_aq5bc")
+text = "Play"
+
+[node name="Score" type="Button" parent="."]
+z_index = 1
+offset_left = 745.0
+offset_top = 408.0
+offset_right = 1156.0
+offset_bottom = 600.0
+theme = ExtResource("3_aq5bc")
+text = "score"
+
+[node name="Guide" type="Button" parent="."]
+z_index = 1
+offset_left = 745.0
+offset_top = 616.0
+offset_right = 1156.0
+offset_bottom = 808.0
+theme = ExtResource("3_aq5bc")
+text = "guide"
+
+[node name="Quit" type="Button" parent="."]
+z_index = 1
+offset_left = 745.0
+offset_top = 832.0
+offset_right = 1152.0
+offset_bottom = 1023.0
+theme = ExtResource("3_aq5bc")
+text = "quit"
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 684.0
+offset_top = 24.0
+offset_right = 1388.0
+offset_bottom = 218.0
+theme = ExtResource("3_aq5bc")
+text = "welcome"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Score" to="." method="_on_score_pressed"]
+[connection signal="pressed" from="Guide" to="." method="_on_guide_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

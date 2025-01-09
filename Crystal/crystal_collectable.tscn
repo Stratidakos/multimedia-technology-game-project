@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://wi4nwbxhm27r"]
+
+[ext_resource type="Script" path="res://Crystal/crystal_collectable.gd" id="1_gg1n2"]
+[ext_resource type="Texture2D" uid="uid://c1qfdv88mrndv" path="res://Assets/gems-spritesheet.png" id="1_ps8ms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjjc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdts3"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(705, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfvwx"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(721, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66bfy"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(737, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itowf"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(753, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fjq6"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(769, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrtvq"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(785, 20, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0kub"]
+atlas = ExtResource("1_ps8ms")
+region = Rect2(801, 20, 16, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3raw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdts3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfvwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66bfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itowf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fjq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrtvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0kub")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="CrystalCollectable" type="Area2D"]
+script = ExtResource("1_gg1n2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cjjc6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e3raw")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 3
+frame_progress = 0.623431
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

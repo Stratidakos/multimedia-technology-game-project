@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4l7wv7tx00hb"]
+
+[ext_resource type="Script" path="res://Levels/levels.gd" id="1_hfomo"]
+[ext_resource type="PackedScene" uid="uid://dv0a82gwckxw6" path="res://SpaceBackground/space_background.tscn" id="2_jx5op"]
+[ext_resource type="PackedScene" uid="uid://falpd24f18my" path="res://MenuBackgroundMusic/menu_background_music.tscn" id="2_k7o7r"]
+[ext_resource type="Texture2D" uid="uid://co52pjb3kr5ti" path="res://Assets/BrightTreeVillage-Endor.webp" id="3_cxsob"]
+[ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://Themes/StarWarsTheme.tres" id="5_sa5nf"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_hfomo")
+
+[node name="MenuBackgroundMusic" parent="." instance=ExtResource("2_k7o7r")]
+
+[node name="SpaceBackground" parent="." instance=ExtResource("2_jx5op")]
+
+[node name="endorImage" type="TextureRect" parent="."]
+z_index = 1
+offset_left = 122.0
+offset_top = 274.0
+offset_right = 622.0
+offset_bottom = 559.0
+texture = ExtResource("3_cxsob")
+expand_mode = 1
+
+[node name="kashyyykImage" type="TextureRect" parent="."]
+z_index = 1
+offset_left = 697.0
+offset_top = 212.0
+offset_right = 1205.0
+offset_bottom = 501.0
+
+[node name="utapauImage" type="TextureRect" parent="."]
+z_index = 1
+offset_left = 1265.0
+offset_top = 212.0
+offset_right = 1773.0
+offset_bottom = 501.0
+
+[node name="endorButton" type="Button" parent="."]
+z_index = 1
+offset_left = 185.0
+offset_top = 575.0
+offset_right = 553.0
+offset_bottom = 668.0
+theme = ExtResource("5_sa5nf")
+theme_override_font_sizes/font_size = 50
+text = " 1. Endor"
+
+[node name="kashyyykButton" type="Button" parent="."]
+z_index = 1
+offset_left = 750.0
+offset_top = 575.0
+offset_right = 1143.0
+offset_bottom = 669.0
+theme = ExtResource("5_sa5nf")
+theme_override_font_sizes/font_size = 50
+text = " 2. Kashyyyk "
+
+[node name="back" type="Button" parent="."]
+z_index = 1
+offset_left = 699.0
+offset_top = 913.0
+offset_right = 1092.0
+offset_bottom = 1007.0
+theme = ExtResource("5_sa5nf")
+theme_override_font_sizes/font_size = 50
+text = "back"
+
+[node name="utapauButton" type="Button" parent="."]
+z_index = 1
+offset_left = 1321.0
+offset_top = 575.0
+offset_right = 1654.0
+offset_bottom = 671.0
+theme = ExtResource("5_sa5nf")
+theme_override_font_sizes/font_size = 50
+text = " 3. utapau "
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 695.0
+offset_top = 24.0
+offset_right = 1399.0
+offset_bottom = 218.0
+theme = ExtResource("5_sa5nf")
+text = "Levels"
+
+[connection signal="pressed" from="endorButton" to="." method="_on_geonosis_button_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

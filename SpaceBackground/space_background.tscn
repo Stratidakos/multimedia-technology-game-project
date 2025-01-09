@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv0a82gwckxw6"]
+
+[ext_resource type="VideoStream" path="res://Assets/StarWarsBackground.ogv" id="1_a1oe6"]
+
+[node name="SpaceBackground" type="VideoStreamPlayer"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 2314.0
+offset_bottom = 1392.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_a1oe6")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true

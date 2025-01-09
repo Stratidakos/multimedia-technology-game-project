@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://blbi0ha8ndtlv"]
+
+[ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://Themes/StarWarsTheme.tres" id="1_70khw"]
+[ext_resource type="Script" path="res://Score/score.gd" id="1_m6kxh"]
+[ext_resource type="PackedScene" uid="uid://falpd24f18my" path="res://MenuBackgroundMusic/menu_background_music.tscn" id="2_bifh4"]
+[ext_resource type="FontFile" uid="uid://nenuulh8t07j" path="res://Themes/STJEDISE.TTF" id="3_o44nd"]
+[ext_resource type="Texture2D" uid="uid://dcx8uqmkawncw" path="res://Themes/Component 3.png" id="4_c4rm1"]
+[ext_resource type="PackedScene" uid="uid://dv0a82gwckxw6" path="res://SpaceBackground/space_background.tscn" id="5_sf5d0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkhcd"]
+font = ExtResource("3_o44nd")
+font_size = 44
+font_color = Color(1, 0.909804, 0.117647, 1)
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_m6kxh")
+
+[node name="MenuBackgroundMusic" parent="." instance=ExtResource("2_bifh4")]
+
+[node name="SpaceBackground" parent="." instance=ExtResource("5_sf5d0")]
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 720.0
+offset_top = 24.0
+offset_right = 1424.0
+offset_bottom = 218.0
+theme = ExtResource("1_70khw")
+text = "Score"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 1
+offset_left = 1070.0
+offset_top = 320.0
+offset_right = 1366.0
+offset_bottom = 391.0
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+z_index = 1
+offset_left = 1070.0
+offset_top = 430.0
+offset_right = 1366.0
+offset_bottom = 501.0
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+z_index = 1
+offset_left = 1070.0
+offset_top = 535.0
+offset_right = 1366.0
+offset_bottom = 606.0
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+z_index = 1
+offset_left = 490.0
+offset_top = 320.0
+offset_right = 906.0
+offset_bottom = 391.0
+text = "best lvl 1 time:"
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+z_index = 1
+offset_left = 490.0
+offset_top = 430.0
+offset_right = 906.0
+offset_bottom = 501.0
+text = "best lvl 2 time:"
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+z_index = 1
+offset_left = 490.0
+offset_top = 535.0
+offset_right = 906.0
+offset_bottom = 606.0
+text = "best lvl 3 time:"
+label_settings = SubResource("LabelSettings_vkhcd")
+horizontal_alignment = 1
+
+[node name="Component3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(966.875, 476.375)
+scale = Vector2(1.87764, 1.54644)
+texture = ExtResource("4_c4rm1")
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 840.0
+offset_top = 920.0
+offset_right = 1072.0
+offset_bottom = 1032.0
+theme = ExtResource("1_70khw")
+text = "back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

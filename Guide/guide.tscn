@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://so0et5cxfhry"]
+
+[ext_resource type="Script" path="res://Guide/guide.gd" id="1_000ui"]
+[ext_resource type="PackedScene" uid="uid://dv0a82gwckxw6" path="res://SpaceBackground/space_background.tscn" id="2_bhdt4"]
+[ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://Themes/StarWarsTheme.tres" id="2_javkv"]
+[ext_resource type="PackedScene" uid="uid://falpd24f18my" path="res://MenuBackgroundMusic/menu_background_music.tscn" id="2_ul76f"]
+
+[node name="Guide" type="Node2D"]
+script = ExtResource("1_000ui")
+
+[node name="MenuBackgroundMusic" parent="." instance=ExtResource("2_ul76f")]
+autoplay = true
+
+[node name="SpaceBackground" parent="." instance=ExtResource("2_bhdt4")]
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 695.0
+offset_top = 24.0
+offset_right = 1399.0
+offset_bottom = 218.0
+theme = ExtResource("2_javkv")
+text = "guide"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 1
+offset_left = 104.0
+offset_top = 240.0
+offset_right = 1768.0
+offset_bottom = 800.0
+theme = ExtResource("2_javkv")
+theme_override_font_sizes/font_size = 35
+text = "objective: find the collectable crystals as fast as possible and escape with your spacecraft.
+controls: 
+the player is able to move both with the arrows and w-a-s-d
+hit with the key “h”
+parry with the key “p”"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_left = 720.0
+offset_top = 840.0
+offset_right = 1080.0
+offset_bottom = 984.0
+theme = ExtResource("2_javkv")
+text = "back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

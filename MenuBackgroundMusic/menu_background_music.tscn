@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://falpd24f18my"]
+
+[ext_resource type="AudioStream" uid="uid://cyvqkox14yaid" path="res://Assets/star-wars-style-chase-music-181118.mp3" id="1_n3yci"]
+[ext_resource type="Script" path="res://MenuBackgroundMusic/menu_background_music.gd" id="1_qkyjv"]
+
+[node name="MenuBackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_n3yci")
+parameters/looping = true
+script = ExtResource("1_qkyjv")
