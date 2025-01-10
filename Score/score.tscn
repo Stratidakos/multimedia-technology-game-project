@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://blbi0ha8ndtlv"]
+[gd_scene load_steps=7 format=3 uid="uid://blbi0ha8ndtlv"]
 
 [ext_resource type="Theme" uid="uid://dhtlubaysqrhx" path="res://Themes/StarWarsTheme.tres" id="1_70khw"]
 [ext_resource type="Script" path="res://Score/score.gd" id="1_m6kxh"]
-[ext_resource type="PackedScene" uid="uid://falpd24f18my" path="res://MenuBackgroundMusic/menu_background_music.tscn" id="2_bifh4"]
 [ext_resource type="FontFile" uid="uid://nenuulh8t07j" path="res://Themes/STJEDISE.TTF" id="3_o44nd"]
 [ext_resource type="Texture2D" uid="uid://dcx8uqmkawncw" path="res://Themes/Component 3.png" id="4_c4rm1"]
 [ext_resource type="PackedScene" uid="uid://dv0a82gwckxw6" path="res://SpaceBackground/space_background.tscn" id="5_sf5d0"]
@@ -14,8 +13,6 @@ font_color = Color(1, 0.909804, 0.117647, 1)
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_m6kxh")
-
-[node name="MenuBackgroundMusic" parent="." instance=ExtResource("2_bifh4")]
 
 [node name="SpaceBackground" parent="." instance=ExtResource("5_sf5d0")]
 
