@@ -8,6 +8,10 @@
 script = ExtResource("1_000ui")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("2_bhdt4")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 2305.0
+offset_bottom = 1381.0
 
 [node name="Label" type="Label" parent="."]
 z_index = 1

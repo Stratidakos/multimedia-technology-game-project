@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MenuBackgroundMusic.play_menu_music()
 	Utils.loadGame()
 	if Game.lvl1time != null:
 		$Label2.text = str(Game.lvl1time) + " seconds"

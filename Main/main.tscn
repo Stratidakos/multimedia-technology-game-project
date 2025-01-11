@@ -9,6 +9,10 @@ script = ExtResource("1_r08iu")
 metadata/_edit_horizontal_guides_ = [-39.0, -252.0]
 
 [node name="SpaceBackground" parent="." instance=ExtResource("3_q3auh")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 2305.0
+offset_bottom = 1381.0
 
 [node name="Play" type="Button" parent="."]
 z_index = 1

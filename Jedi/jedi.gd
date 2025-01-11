@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var health = 2
+var health = 100
 var collectables = 0
 var enemyAttackCooldonw = false
 var SPEED = 150.0
@@ -24,9 +24,14 @@ func _physics_process(delta: float) -> void:
 		
 			
 	if Input.is_action_just_pressed("attack") and !attackFlag:
+		SPEED = 0
+		velocity.x = 0
 		attackFlag = true
 		get_node("AnimatedSprite2D").play("Hit")
 		await get_tree().create_timer(0.350).timeout
+		SPEED = 150.0
+		velocity.x = 0
+		#velocity.x = direction * SPEED
 		attackFlag = false
 		
 	
@@ -36,9 +41,9 @@ func _physics_process(delta: float) -> void:
 		parryFlag = true
 		get_node("AnimatedSprite2D").play("Parry")
 		await get_tree().create_timer(0.5).timeout
-		parryFlag = false
 		SPEED = 150.0
-		velocity.x = direction * SPEED
+		velocity.x = 0
+		parryFlag = false
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -66,13 +71,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name)
+	#print(body.name)
 	if body.get_parent().name == "Enemies" and !enemyAttackCooldonw and get_node("AnimatedSprite2D").animation != "Hit":
 		enemyAttackCooldonw = true
 		health -= 1
 		$DamageCooldown.start()
 	elif body.name == "LaserBeam" and !enemyAttackCooldonw and get_node("AnimatedSprite2D").animation != "Parry":
-		body.queue_free()
+		#body.queue_free()
 		enemyAttackCooldonw = true
 		health -= 1
 		$DamageCooldown.start()

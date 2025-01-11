@@ -12,3 +12,6 @@ func _play_music(music: AudioStream, volume = 0.0):
 	
 func play_menu_music():
 	_play_music(menu_music)
+
+func change_music(sceneMusic: AudioStream):
+	_play_music(sceneMusic)

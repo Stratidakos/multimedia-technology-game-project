@@ -130,7 +130,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gvy2"]
-size = Vector2(176, 64)
+size = Vector2(210, 70)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_acd5d"]
 radius = 16.0

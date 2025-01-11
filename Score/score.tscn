@@ -15,6 +15,10 @@ font_color = Color(1, 0.909804, 0.117647, 1)
 script = ExtResource("1_m6kxh")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("5_sf5d0")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 2305.0
+offset_bottom = 1381.0
 
 [node name="Label" type="Label" parent="."]
 z_index = 1
