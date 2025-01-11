@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var health = 100
+var health = 5
 var collectables = 0
 var enemyAttackCooldonw = false
 var SPEED = 150.0
