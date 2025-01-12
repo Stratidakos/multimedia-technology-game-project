@@ -250,7 +250,7 @@ position = Vector2(272, 970)
 position = Vector2(2120, 970)
 
 [node name="StormTrooper3" parent="Enemies" instance=ExtResource("9_018m3")]
-position = Vector2(1040, 970)
+position = Vector2(768, 970)
 
 [node name="StormTrooper4" parent="Enemies" instance=ExtResource("9_018m3")]
 position = Vector2(1096, 860)
@@ -274,10 +274,9 @@ position = Vector2(2920, 910)
 position = Vector2(168, 860)
 
 [node name="StormTrooper12" parent="Enemies" instance=ExtResource("9_018m3")]
-position = Vector2(2496, 860)
+position = Vector2(2406, 860)
 
 [node name="CountDownTimer" type="Timer" parent="."]
 wait_time = 300.0
-autostart = true
 
 [connection signal="timeout" from="CountDownTimer" to="." method="_on_count_down_timer_timeout"]

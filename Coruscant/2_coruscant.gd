@@ -10,13 +10,15 @@ var levelTime = 0.0;
 func _ready() -> void:
 	MenuBackgroundMusic.change_music(coruscantMusic)
 	GlobalSignals.connect("shotFired", _shot_fired)
+	$CountDownTimer.start()
 	#levelTime = Time.get_ticks_msec()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#var currentTime = Time.get_ticks_msec() - levelTime
-	levelClock.text = str($CountDownTimer.time_left).substr(0,5)
+	levelTime = $CountDownTimer.time_left
+	levelClock.text = str(levelTime).substr(0,5)
 
 
 func _shot_fired(laserBeam, position: Vector2, direction: Vector2) -> void:
